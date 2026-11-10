@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Practice programming interview questions with an AI expert." />
+    <title>Interview Expert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Interview Expert home">
+          <span class="brand-mark">&lt;/&gt;</span>
+          <span>Interview<span class="brand-accent">Expert</span></span>
+        </a>
+        <span class="status-pill"><span class="status-dot"></span> AI coach online</span>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">YOUR PERSONAL PRACTICE ROOM</div>
+        <h1>Think clearly.<br /><em>Answer confidently.</em></h1>
+        <p>Ask a programming question and get a focused explanation tailored to your experience level.</p>
+      </section>
+
+      <section class="workspace" aria-label="Interview question form">
+        <div class="panel panel-form">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-kicker">01 / SET YOUR FOCUS</span>
+              <h2>What are you preparing for?</h2>
+            </div>
+            <span class="step-number">01</span>
+          </div>
+
+          <form id="question-form">
+            <label for="question">Your question</label>
+            <textarea id="question" name="question" rows="5" placeholder="e.g. Explain the event loop in Node.js" required></textarea>
+
+            <div class="field-grid">
+              <div>
+                <label for="language">Language</label>
+                <input id="language" name="language" type="text" value="JavaScript" placeholder="e.g. Python" required />
+              </div>
+              <div>
+                <label for="level">Experience level</label>
+                <select id="level" name="level">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate" selected>Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="submit-button" type="submit">
+              <span>Generate answer</span><span class="arrow">↗</span>
+            </button>
+          </form>
+          <p class="hint"><span>⌘</span> Tip: Be specific about the concept you want to understand.</p>
+        </div>
+
+        <div class="panel panel-answer" aria-live="polite">
+          <div class="panel-heading answer-heading">
+            <div>
+              <span class="panel-kicker">02 / YOUR COACH'S TAKE</span>
+              <h2>Interview answer</h2>
+            </div>
+            <span class="spark">✦</span>
+          </div>
+          <div id="answer" class="answer-content empty-state">
+            <div class="empty-icon">✦</div>
+            <h3>Your answer will appear here</h3>
+            <p>Choose your focus and send a question to begin your practice session.</p>
+          </div>
+          <div id="loading" class="loading-state" hidden>
+            <span class="loader"></span>
+            <span>Thinking through your question…</span>
+          </div>
+        </div>
+      </section>
+
+      <footer><span>BUILT FOR BETTER INTERVIEWS</span><span>LOCAL AI · PRIVATE PRACTICE</span></footer>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
