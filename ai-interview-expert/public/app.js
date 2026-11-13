@@ -1,21 +1,22 @@
 const form = document.querySelector("#question-form");
-const question = document.querySelector("#question");
 const answer = document.querySelector("#answer");
 const loading = document.querySelector("#loading");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const button = event.submitter;
+  const question = document.querySelector(`#${button.dataset.input}`);
+  const prompt = question.value.trim();
+  if (!prompt) return;
+
   const payload = {
-    question: question.value.trim(),
-    language: document.querySelector("#language").value.trim(),
-    level: document.querySelector("#level").value,
+    question: prompt,
   };
-  if (!payload.question || !payload.language) return;
 
   answer.hidden = true;
   loading.hidden = false;
   try {
-    const response = await fetch("/ask-agent", {
+    const response = await fetch(button.dataset.endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
